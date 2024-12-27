@@ -1,4 +1,16 @@
-fastapi
-uvicorn
+fastapi~=0.115.6
+uvicorn~=0.34.0
 googletrans==4.0.0-rc1
-    pydantic
+pydantic~=2.10.4
+
+#FastAPI: Untuk membuat API yang cepat dan mudah digunakan untuk aplikasi Flutter.
+ # uvicorn: Untuk menjalankan API yang dibuat dengan FastAPI.
+#  googletrans: Untuk menerjemahkan teks.
+ # pydantic: Untuk memvalidasi data yang masuk ke API.
+ # Jadi, intinya: meskipun proyek Flutter-mu menggunakan bahasa Dart, file requirements.txt bisa ada jika kamu menggunakan komponen atau alat bantu yang dibuat dengan Python.
+
+pip~=24.3.1
+wheel~=0.41.2
+setuptools~=68.2.0
+
+typing_extensions~=4.12.2
