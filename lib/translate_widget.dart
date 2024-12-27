@@ -18,6 +18,7 @@ class _TranslateWidgetState extends State<TranslateWidget> {
   bool _isLoading = false;
   Timer? _debounce; // Timer untuk debounce
 
+  // Fungsi untuk menerjemahkan teks
   Future<void> _translateText(String text) async {
     if (text.isEmpty) {
       setState(() {
@@ -31,8 +32,8 @@ class _TranslateWidgetState extends State<TranslateWidget> {
     });
 
     final apiUrl = widget.type == 'IND-ENG'
-        ? 'http://192.168.1.15:8000/translate/ind-eng/' // Ganti dengan IP komputer
-        : 'http://192.168.1.15:8000/translate/eng-ind/'; // Ganti dengan IP komputer
+        ? 'https://6e383b03-d1e8-4128-aeaa-3293a9ca3936-00-2u13f4nkx204h.pike.replit.dev/translate/ind-eng/' // Ganti dengan URL Replit Anda
+        : 'https://6e383b03-d1e8-4128-aeaa-3293a9ca3936-00-2u13f4nkx204h.pike.replit.dev/translate/eng-ind/'; // Ganti dengan URL Replit Anda
 
     try {
       final response = await http.post(
@@ -78,7 +79,7 @@ class _TranslateWidgetState extends State<TranslateWidget> {
         backgroundColor: Colors.blueAccent,
         leading: GestureDetector(
           onTap: () {
-            Navigator.pop(context);
+            Navigator.pop(context); // Tombol kembali
           },
           child: Container(
             margin: EdgeInsets.all(8),
@@ -158,7 +159,7 @@ class _TranslateWidgetState extends State<TranslateWidget> {
                 onChanged: (text) {
                   if (_debounce?.isActive ?? false) _debounce!.cancel();
                   _debounce = Timer(Duration(milliseconds: 500), () {
-                    _translateText(text);
+                    _translateText(text); // Menjalankan fungsi translate
                   });
                 },
               ),
@@ -198,5 +199,3 @@ class _TranslateWidgetState extends State<TranslateWidget> {
     );
   }
 }
-
-//sudah di update untuk design yang bagus dan ada perubahan pada translate otomatis tidak perlu menekan button translate lagi untuk mentraslate dan ada tombol back ke halaman homescreen karena sebelumnya belum ada
